@@ -40,5 +40,5 @@ RUN cd getweather && \
 WORKDIR /app/getweather
 
 # Ejecuta el script cada 2 minutos en bucle infinito
-CMD bash -c 'while true; do bash /app/aprs-metric-2.sh; sleep 120; done'
+CMD bash -c 'while true; do bash /app/aprs-metric-2.sh; sleep 300; done'
 

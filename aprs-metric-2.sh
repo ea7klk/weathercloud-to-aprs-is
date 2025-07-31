@@ -38,6 +38,13 @@ wind_gust_kmh=$(printf "%.1f" "$(echo "$wind_gust_ms * 3.6" | bc -l)")
 SERVER="${SERVER:-euro.aprs2.net}"
 PORT="${PORT:-14580}"
 
+# Verificación de datos nulos: si temp y presión son 0, abortar
+if [ "$temp_c" = "0" ] && [ "$pressure" = "0" ]; then
+  timestamp=$(date -u +"%Y-%m-%d %H:%M:%S UTC")
+  echo "$timestamp ⚠️  Datos inválidos: temperatura y presión ambas a cero. Se omite envío."
+  exit 0
+fi
+
 # Llamada a aprs-weather-submit
 aprs-weather-submit \
   -k "$CALLSIGN" \

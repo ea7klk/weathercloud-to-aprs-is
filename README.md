@@ -24,7 +24,8 @@ It supports:
 
 Create a `.env` file (used by both Docker and the shell script):
 
-```env
+```
+env
 # WeatherCloud station
 STATION_ID=5076070607
 
@@ -39,8 +40,8 @@ PASSWORD=your_aprs_passcode
 
 # (Optional) APRS-IS server settings
 SERVER=euro.aprs2.net
-PORT=14580´´´
-
+PORT=14580
+```
 
 ## Run with Docker locally:
 docker build -t aprs-weather .

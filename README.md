@@ -44,7 +44,7 @@ PORT=14580
 
 ## Run with Docker locally:
 docker build -t aprs-weather .
-docker run --env-file .env aprs-weather ```
+docker run --env-file .env aprs-weather```
 
 ## Deploy with Docker Compose:
 docker compose up -d --build

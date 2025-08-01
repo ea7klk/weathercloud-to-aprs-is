@@ -1,13 +1,8 @@
 version: "3.8"
-
 services:
   aprs-weather:
-    build:
-      context: .
-      dockerfile: Dockerfile
     container_name: aprs-weather
-    env_file: .env_prod
-    restart: always
-    volumes:
-      - ./logs:/var/log/aprs
-
+    image: ghcr.io/ea7klk/weathercloud-to-aprs-is:latest
+    env_file:
+      - .env
+    restart: unless-stopped

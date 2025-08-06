@@ -8,7 +8,9 @@
 : "${PASSWORD:?Variable PASSWORD no definida}"
 
 # Ejecuta script Node.js (se espera que imprima JSON)
-weather_json=$(node index.js)
+# Usa la ruta absoluta para que funcione sin importar el directorio actual
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+weather_json=$(node "$SCRIPT_DIR/getweather/index.js")
 
 # Verifica si la salida es JSON válido
 if ! echo "$weather_json" | jq . >/dev/null 2>&1; then
